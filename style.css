@@ -1,0 +1,352 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:20px;
+    transition:0.4s ease;
+}
+
+/* Dark Mode */
+body.dark{
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    color:white;
+}
+
+/* Theme Button */
+.theme-btn{
+    border:none;
+    padding:12px 18px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:15px;
+    margin-bottom:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    transition:0.3s;
+}
+
+.theme-btn:hover{
+    transform:translateY(-2px);
+}
+
+/* Layout */
+.container{
+    width:100%;
+    max-width:1100px;
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+/* Main Card */
+.converter-card{
+    flex:1;
+    min-width:360px;
+    background:rgba(255,255,255,0.95);
+    backdrop-filter:blur(10px);
+    border-radius:24px;
+    padding:30px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.15);
+    animation:fadeIn 0.6s ease;
+}
+
+body.dark .converter-card{
+    background:#1e293b;
+}
+
+.converter-card h1{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+/* Input */
+.input-group{
+    margin-bottom:20px;
+}
+
+.input-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+.input-group input{
+    width:100%;
+    padding:14px;
+    border-radius:12px;
+    border:1px solid #d1d5db;
+    font-size:16px;
+}
+
+/* Currency Section */
+.currency-section{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:18px;
+}
+
+/* Flag */
+.flag-box{
+    width:70px;
+    display:flex;
+    justify-content:center;
+}
+
+.flag-box img{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    object-fit:cover;
+    border:2px solid #ddd;
+    transition:0.3s;
+}
+
+.flag-box img:hover{
+    transform:scale(1.1);
+}
+
+/* Select Box */
+.currency-box{
+    flex:1;
+}
+
+.currency-box label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:600;
+}
+
+.currency-box select{
+    width:100%;
+    padding:12px;
+    border-radius:12px;
+    border:1px solid #d1d5db;
+}
+
+/* Tom Select Styling */
+.ts-control{
+    border-radius:12px !important;
+    min-height:48px !important;
+}
+
+.ts-dropdown{
+    border-radius:12px !important;
+}
+
+/* Swap Button */
+.swap-container{
+    display:flex;
+    justify-content:center;
+    margin:15px 0;
+}
+
+.swap-btn{
+    width:60px;
+    height:60px;
+    border:none;
+    border-radius:50%;
+    background:#4f46e5;
+    color:white;
+    font-size:24px;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 5px 15px rgba(79,70,229,0.4);
+}
+
+.swap-btn:hover{
+    transform:rotate(180deg);
+}
+
+/* Convert Button */
+.convert-btn{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:14px;
+    background:#2563eb;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.convert-btn:hover{
+    opacity:0.9;
+    transform:translateY(-2px);
+}
+
+/* Exchange Rate */
+.rate-box{
+    margin-top:20px;
+    text-align:center;
+    font-size:15px;
+    font-weight:500;
+}
+
+/* Result */
+.result-box{
+    margin-top:20px;
+    text-align:center;
+}
+
+.result-box h2{
+    color:#16a34a;
+    font-size:28px;
+}
+
+/* History Card */
+.history-card{
+    width:340px;
+    background:rgba(255,255,255,0.95);
+    backdrop-filter:blur(10px);
+    border-radius:24px;
+    padding:25px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.15);
+    animation:fadeIn 0.6s ease;
+}
+
+body.dark .history-card{
+    background:#1e293b;
+}
+
+.history-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.history-header button{
+    border:none;
+    padding:8px 12px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+#historyList{
+    list-style:none;
+    max-height:450px;
+    overflow-y:auto;
+}
+
+#historyList li{
+    padding:12px;
+    margin-bottom:10px;
+    border-radius:12px;
+    background:#f1f5f9;
+    animation:slideUp 0.3s ease;
+}
+
+body.dark #historyList li{
+    background:#334155;
+}
+
+/* Scrollbar */
+#historyList::-webkit-scrollbar{
+    width:6px;
+}
+
+#historyList::-webkit-scrollbar-thumb{
+    background:#94a3b8;
+    border-radius:10px;
+}
+
+/* Animations */
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes slideUp{
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Mobile */
+@media(max-width:768px){
+
+    .container{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .converter-card,
+    .history-card{
+        width:100%;
+    }
+
+    .currency-section{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .flag-box{
+        width:auto;
+    }
+}
+/* Favorites */
+
+.favorites-card{
+    width:340px;
+    background:rgba(255,255,255,0.95);
+    backdrop-filter:blur(10px);
+    border-radius:24px;
+    padding:25px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.15);
+    margin-bottom:20px;
+}
+
+body.dark .favorites-card{
+    background:#1e293b;
+}
+
+.favorites-header{
+    margin-bottom:15px;
+}
+
+#favoritesList{
+    list-style:none;
+    margin-bottom:15px;
+}
+
+#favoritesList li{
+    padding:12px;
+    margin-bottom:10px;
+    border-radius:12px;
+    background:#f1f5f9;
+    cursor:pointer;
+}
+
+body.dark #favoritesList li{
+    background:#334155;
+}
+
+#addFavoriteBtn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
